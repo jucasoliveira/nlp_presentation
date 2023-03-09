@@ -57,7 +57,10 @@ The last comment block of each slide will be treated as slide notes. It will be 
 - 🎨 **Why use generative A.I. to improve your CV?**
 - 🧑‍💻 **How to use generative A.I. to improve your CV**
 - 🤹 **Best practices for using generative A.I. for your CV**
-- 🎥 **Conclusion**
+- 🪜 **Example**
+- 🛹 **Doing it on hireBrain**
+- 🚓 **Demo**
+- 🎥 **Questions**
 
 <br>
 <br>
@@ -115,15 +118,15 @@ Overall, using generative A.I. to improve your CV can provide many benefits such
 
 # How to use generative A.I. to improve your CV
 
-Identify the right generative A.I. tool: The first step to using generative A.I. to improve your CV is to identify the right tool for your needs. Look for generative A.I. tools that are specifically designed for creating CVs or that offer customizable design options.
+- Identify the right generative A.I. tool: The first step to using generative A.I. to improve your CV is to identify the right tool for your needs. Look for generative A.I. tools that are specifically designed for creating CVs or that offer customizable design options.
 
-Input your information: Once you have identified the right tool, input your relevant information such as work experience, education, and skills. Make sure to include any other relevant information that can help the generative A.I. tool to create a customized design for you.
+- Input your information: Once you have identified the right tool, input your relevant information such as work experience, education, and skills. Make sure to include any other relevant information that can help the generative A.I. tool to create a customized design for you.
 
-Choose a design: After inputting your information, the generative A.I. tool will generate multiple design options for you to choose from. Take your time to review each option and choose the one that best showcases your skills and experiences.
+- Choose a design: After inputting your information, the generative A.I. tool will generate multiple design options for you to choose from. Take your time to review each option and choose the one that best showcases your skills and experiences.
 
-Customize the design: Once you have chosen a design, you can customize it further to make it even more unique. Many generative A.I. tools offer customization options such as font choice, color scheme, and layout adjustments. Make sure to tailor the design to your specific needs and preferences.
+- Customize the design: Once you have chosen a design, you can customize it further to make it even more unique. Many generative A.I. tools offer customization options such as font choice, color scheme, and layout adjustments. Make sure to tailor the design to your specific needs and preferences.
 
-Export and share: Once you are satisfied with your CV design, export it in a format that is easily shareable such as PDF or PNG. Make sure to share it with recruiters, hiring managers, or other relevant parties to increase your chances of getting hired.
+- Export and share: Once you are satisfied with your CV design, export it in a format that is easily shareable such as PDF or PNG. Make sure to share it with recruiters, hiring managers, or other relevant parties to increase your chances of getting hired.
 
 Overall, using generative A.I. to improve your CV involves identifying the right tool, inputting your information, choosing a design, customizing it, and sharing it with potential employers. By following these steps, you can create a custom, visually appealing CV that showcases your skills and experiences in a unique way.
 
@@ -131,13 +134,13 @@ Overall, using generative A.I. to improve your CV involves identifying the right
 
 # Best practices for using generative A.I. for your CV
 
-Be selective: When choosing a generative A.I. tool, make sure to do your research and choose a tool that is reputable and specifically designed for creating CVs.
+- Be selective: When choosing a generative A.I. tool, make sure to do your research and choose a tool that is reputable and specifically designed for creating CVs.
 
-Input accurate information: Make sure to input accurate and up-to-date information into the generative A.I. tool to ensure that your CV is a true representation of your skills and experiences.
+- Input accurate information: Make sure to input accurate and up-to-date information into the generative A.I. tool to ensure that your CV is a true representation of your skills and experiences.
 
-Review and edit: Even though generative A.I. can automate the design process, it's important to review and edit the generated designs to ensure that they accurately represent you and your skills.
+- Review and edit: Even though generative A.I. can automate the design process, it's important to review and edit the generated designs to ensure that they accurately represent you and your skills.
 
-Keep it professional: While customization is important, it's important to keep the overall design of your CV professional and appropriate for the job you're applying for.
+- Keep it professional: While customization is important, it's important to keep the overall design of your CV professional and appropriate for the job you're applying for.
 
 Use as a supplement: While generative A.I. can help you create a unique and visually appealing CV, it should be used as a supplement to your overall job application, which should include a well-written cover letter and any additional materials required by the employer.
 
@@ -157,18 +160,22 @@ to effectively demonstrate value to potential employers.
 
 ---
 
-# Creating a CV analytics and enhancer
+# Doing it with hireBrain and Phyton
+
+---
+
+# 1. Creating a CV analytics and enhancer
 
 - The idea were to help others to improve their own cv
 - Using NLP and/or GPT to transform the curriculum
 
 ---
 
-# Extracting CV content
+# 2. Extracting CV content
 
 - We need to process 1,000 Resumes (CV)
 
-```python {maxHeight:'50px'}
+```python {all}
 #Function to read resumes from the folder one by one
 mypath='./NLP_Resume/Candidate Resume'
 onlyfiles = [os.path.join(mypath, f) for f in os.listdir(mypath)
@@ -179,9 +186,9 @@ onlyfiles = [os.path.join(mypath, f) for f in os.listdir(mypath)
 
 ---
 
-# Matching the Resume and Job Description
+# 3. Matching the Resume and Job Description
 
-```python
+```python {all}
 
 # load  the job description
 with open('doil.txt') as job:
@@ -202,11 +209,11 @@ with open('cv') as cv:
 
 ---
 
-# Create a dictionary
+# 4. Create a dictionary
 
 - The objective is to rank the job position with the resume
 
-```python
+```python {all}
 terms = {'Quality/Six Sigma':['black belt','capability analysis','control charts','doe','dmaic','fishbone',
                               'gage r&r', 'green belt','ishikawa','iso','kaizen','kpi','lean','metrics',
                               'pdsa','performance improvement','process improvement','quality',
@@ -237,7 +244,7 @@ terms = {'Quality/Six Sigma':['black belt','capability analysis','control charts
 
 ---
 
-# Scoring the CV content
+# 5, Scoring the CV content
 
 <div class="grid grid-cols-2 gap-10 pt-4 -mb-6">
 
@@ -330,7 +337,7 @@ for area in terms.keys():
 
 ---
 
-# Sort data
+# 6. Sort data
 
 ```python
 # Create a data frame with the scores summary
@@ -340,11 +347,11 @@ summary
 
 ---
 
-# With the data sorted, now we can continue
+# 7. With the data sorted, now we can continue
 
 - Tokenization
 
-```python
+```python {all}
 def token(text):
   tokens=re.split('\W+',text)
   return tokens
@@ -354,7 +361,7 @@ df.to_csv('after_tokenization.csv',index=False)
 
 - Lemmatization
 
-```python
+```python {all}
 ln=nltk.WordNetLemmatizer()
 def lemm(text):
   z=[ln.lemmatize(word) for word in text]
@@ -365,7 +372,7 @@ df.to_csv('after_lemmatization.csv',index=False)
 
 - Filter Noun phrases, verb forms and merge as single collumn
 
-```python
+```python {all}
 def string(text):
   return set(' '.join([char for char in text]).lower().split(' '))
 df['total_words']=(df['noun_phrases']+df['verb_forms']+df['named_entities']).apply(lambda x:string(x))
@@ -374,13 +381,33 @@ df['total_words']
 
 ---
 
-# Final touch
+# 8. Final touch
+
+- Check how close the CV is to the job description
+
+```python {all}
+  text_list =[text_resume, jobContent]
+  from sklearn.feature_extraction.text import CountVectorizer
+  cv = CountVectorizer()
+  count_matrix = cv.fit_transform(text_list)
+
+  from sklearn.metrics.pairwise import cosine_similarity
+
+  matchPercentage = cosine_similarity(count_matrix)[0][1] * 100
+  matchPercentage = round(matchPercentage, 2) # round to two decimal
+
+  print("Your resume matches about "+ str(matchPercentage)+ "% of the job description.")
+```
 
 - Repeat the same for CV's you want to compare
-- Generate matched more number of skills
+- Evaluate the best match CV and the job description
+- Return the best match CV text.
+- Provide it on a web app
 
 ---
 
-# Learn More
+# Demo
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+---
+
+# Questions
